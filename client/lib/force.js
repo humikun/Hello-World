@@ -282,6 +282,7 @@ var force = (function () {
         console.log('method:['+'loginWithBrowser'+']:start-->')
         console.log('loginURL: ' + loginURL);
         console.log('oauthCallbackURL: ' + oauthCallbackURL);
+        console.log*('successHandler:'+successHandler)
 
         var loginWindowURL = loginURL + '/services/oauth2/authorize?client_id=' + appId + '&redirect_uri=' +
             oauthCallbackURL + '&response_type=token';
