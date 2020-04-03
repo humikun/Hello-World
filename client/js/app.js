@@ -1,5 +1,5 @@
 function getRRKList(success, error) {
-  var soql = "Select Id, Name, RRK_NM__c, RRK_SEIKYU__c, RRK_KISHU__c, RRK_KYOTEN__c From RRK__c Where RRK_ANKEJOTAI__c = '技術承認'";
+  var soql = "select Id, Name, dishes_recode_name__c, dishes_des_recode_name__c FROM menu__c";
   force.query(soql, success, error);
 }
 
