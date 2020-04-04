@@ -1,5 +1,5 @@
 function getRRKList(success, error) {
-  var soql = "select Id, Name, dishes_recode_name__c, dishes_des_recode_name__c FROM menu__c";
+  var soql = "select Id, Name, dishes_recode_name__c, dishes_des_recode_name__c, dishes_img FROM menu__c";
   force.query(soql, success, error);
 }
 
@@ -17,13 +17,13 @@ function showRRKList() {
     console.log("showRRKList:start")
     getRRKList(
         function (data) {
-
+            console.log('data:'+data)
             var rrks = data.records,
                 html = '';
             for (var i=0; i<rrks.length; i++) {
                 html += '<li class="table-view-cell"><a href="#rrkid/'+ rrks[i].Id +'">名称:' + rrks[i].Name + '</a></li>';
-                html += '<li class="table-view-cell"><a href="#rrkid/'+ rrks[i].Id +'">案件状態:' + rrks[i].RRK_ANKEJOTAI__c + '</a></li>';
-                html += '<li class="table-view-cell"><a href="#rrkid/'+ rrks[i].Id +'">拠点:' + rrks[i].RRK_KYOTEN__c + '</a></li>';
+                html += '<li class="table-view-cell"><a href="#rrkid/'+ rrks[i].Id +'">案件状態:' + rrks[i].dishes_recode_name__c + '</a></li>';
+                html += '<li class="table-view-cell"><a href="#rrkid/'+ rrks[i].Id +'">拠点:' + rrks[i].dishes_img + '</a></li>';
             }
             html =
                 '<div class="page">' +
