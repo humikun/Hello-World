@@ -31,6 +31,7 @@ var sfdcUtil = (function () {
     // The public API
     return {
         init: init,
+        getStaticResource: getStaticResource,
         // login: login,
         // getUserId: getUserId,
         // isLoggedIn: isLoggedIn,
