@@ -7,6 +7,16 @@
 var sfdcUtil = (function () {
     console.log('-------------------------------------util-------------------------------------')
     "use strict";
+
+
+    function init() {
+        console.log('sfdcUtil:[init]--->')
+        // 
+        console.log('<---sfdcUtil:[init]')
+    }
+
+
+
     function getStaticResource(name, success, error) {
         var queryStr = "SELECT" +
             " Id," +
