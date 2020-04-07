@@ -15,6 +15,7 @@ function getRRKDetails(rrkid, success, error) {
 
 function showRRKList() {
     console.log("showRRKList:start")
+    sfdcUtil.getStaticResource(function(data){},function(error){alert("Error: " + JSON.stringify(error))})
     getRRKList(
         function (data) {
             console.log('data:'+data)
