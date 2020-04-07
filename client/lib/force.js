@@ -248,7 +248,7 @@ var force = (function () {
         } else {
             loginWithBrowser(successHandler, errorHandler);
         }
-        console.log('<--method:['+'inloginit'+']:end')
+        console.log('<--method:['+'loginit'+']:end')
     }
 
     function loginWithPlugin(successHandler, errorHandler) {
@@ -282,7 +282,7 @@ var force = (function () {
         console.log('method:['+'loginWithBrowser'+']:start-->')
         console.log('loginURL: ' + loginURL);
         console.log('oauthCallbackURL: ' + oauthCallbackURL);
-        console.log*('successHandler:'+successHandler)
+        console.log('successHandler:'+successHandler)
 
         var loginWindowURL = loginURL + '/services/oauth2/authorize?client_id=' + appId + '&redirect_uri=' +
             oauthCallbackURL + '&response_type=token';

@@ -15,9 +15,14 @@ function getRRKDetails(rrkid, success, error) {
 
 function showRRKList() {
     console.log("showRRKList:start")
+    var imgLst,
+        menuLst;
+    sfdcUtil.getStaticResource(
+        function (data) {imgLst = data.records},
+        function (error){alert("Error: " + JSON.stringify(error))}
+    )
     getRRKList(
         function (data) {
-
             var rrks = data.records,
                 html = '';
             for (var i=0; i<rrks.length; i++) {
@@ -39,7 +44,7 @@ function showRRKList() {
         function (error) {
             alert("Error: " + JSON.stringify(error));
         });
-        console.log("showRRKList:end")
+    console.log("showRRKList:end")
     return false;
 }
 
