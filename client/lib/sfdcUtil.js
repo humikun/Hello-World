@@ -13,6 +13,7 @@ var sfdcUtil = (function () {
         console.log('sfdcUtil:[init]--->')
         // 
         console.log('<---sfdcUtil:[init]')
+        return;
     }
 
 
