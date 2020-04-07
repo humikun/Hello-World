@@ -31,18 +31,18 @@ var sfdcUtil = (function () {
     // The public API
     return {
         init: init,
-        login: login,
-        getUserId: getUserId,
-        isLoggedIn: isLoggedIn,
-        request: request,
-        query: query,
-        create: create,
-        update: update,
-        del: del,
-        upsert: upsert,
-        retrieve: retrieve,
-        discardToken: discardToken,
-        oauthCallback: oauthCallback
+        // login: login,
+        // getUserId: getUserId,
+        // isLoggedIn: isLoggedIn,
+        // request: request,
+        // query: query,
+        // create: create,
+        // update: update,
+        // del: del,
+        // upsert: upsert,
+        // retrieve: retrieve,
+        // discardToken: discardToken,
+        // oauthCallback: oauthCallback
     };
 
 })();
