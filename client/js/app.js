@@ -16,7 +16,12 @@ function getRRKDetails(rrkid, success, error) {
 function showRRKList() {
     console.log("showRRKList:start")
     var static_img = 'dishesM0002'
-    sfdcUtil.getStaticResource(static_img,function(data){},function(error){alert("Error: " + JSON.stringify(error))})
+    sfdcUtil.getStaticResource(static_img,function(data){
+        console.log(JSON.stringify(data))
+    },
+    function(error){
+        alert("Error: " + JSON.stringify(error))
+    })
     getRRKList(
         function (data) {
             console.log('data:'+data)
