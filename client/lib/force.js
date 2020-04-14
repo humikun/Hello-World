@@ -8,7 +8,7 @@ var force = (function () {
     "use strict";
 
     var loginURL = 'https://login.salesforce.com',
-    var domainString = 'https://zwk-playful-moose-388230-dev-ed.lightning.force.com/',
+        domainString = 'https://zwk-playful-moose-388230-dev-ed.lightning.force.com/',
 
     // The Connected App client Id. Default app id provided - Not for production use.
         appId = '3MVG9fMtCkV6eLheIEZplMqWfnGlf3Y.BcWdOf1qytXo9zxgbsrUbS.ExHTgUPJeb3jZeT8NYhc.hMyznKU92',
