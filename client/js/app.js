@@ -30,10 +30,7 @@ function showRRKList() {
             for (var i=0; i<rrks.length; i++) {
                 html += '<li class="table-view-cell"><a href="#rrkid/'+ rrks[i].Id +'">名称:' + rrks[i].Name + '</a></li>';
                 html += '<li class="table-view-cell"><a href="#rrkid/'+ rrks[i].Id +'">描述:' + rrks[i].dishes_recode_name__c + '</a></li>';
-                // html += '<li class="table-view-cell"><a href="#rrkid/'+ rrks[i].Id +'">图片:<img src=' + rrks[i].dishes_img__c + '</a></li>';
-                html += '<li class="table-view-cell"><a href="#rrkid/'+ rrks[i].Id +'">图片:<img src="resource/aaaa.jpg" />' + '/a></li>';
-                html += '<li class="table-view-cell"><a href="#rrkid/'+ rrks[i].Id +'">图片:<img src="/resource/aaaa.jpg" />' + '</a></li>';
-                html += '<li class="table-view-cell"><a href="#rrkid/'+ rrks[i].Id +'">图片:<img src="./resource/aaaa.jpg" />' + '</a></li>';
+                html += '<li class="table-view-cell"><a href="#rrkid/'+ rrks[i].Id +'">图片:' + StringUtil.getImgFromSfdc(rrks[i].dishes_img__c) + '</a></li>';
             }
             html =
                 '<div class="page">' +
