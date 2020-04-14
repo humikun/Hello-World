@@ -31,9 +31,9 @@ function showRRKList() {
                 html += '<li class="table-view-cell"><a href="#rrkid/'+ rrks[i].Id +'">名称:' + rrks[i].Name + '</a></li>';
                 html += '<li class="table-view-cell"><a href="#rrkid/'+ rrks[i].Id +'">描述:' + rrks[i].dishes_recode_name__c + '</a></li>';
                 // html += '<li class="table-view-cell"><a href="#rrkid/'+ rrks[i].Id +'">图片:<img src=' + rrks[i].dishes_img__c + '</a></li>';
-                html += '<li class="table-view-cell"><a href="#rrkid/'+ rrks[i].Id +'">图片:<img src=https://zwk-playful-moose-388230-dev-ed.lightning.force.com/resource/dishesM0001' + '</a></li>';
-                html += '<li class="table-view-cell"><a href="#rrkid/'+ rrks[i].Id +'">图片:<img src=/resource/aaaa.jpg' + '</a></li>';
-                html += '<li class="table-view-cell"><a href="#rrkid/'+ rrks[i].Id +'">图片:<img src=./resource/aaaa.jpg' + '</a></li>';
+                html += '<li class="table-view-cell"><a href="#rrkid/'+ rrks[i].Id +'">图片:<img src="resource/aaaa.jpg" />' + '/a></li>';
+                html += '<li class="table-view-cell"><a href="#rrkid/'+ rrks[i].Id +'">图片:<img src="/resource/aaaa.jpg" />' + '</a></li>';
+                html += '<li class="table-view-cell"><a href="#rrkid/'+ rrks[i].Id +'">图片:<img src="./resource/aaaa.jpg" />' + '</a></li>';
             }
             html =
                 '<div class="page">' +
