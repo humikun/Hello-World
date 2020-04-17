@@ -3,17 +3,6 @@ function getRRKList(success, error) {
   force.query(soql, success, error);
 }
 
-function getRRKDetails(dishId, success, error) {
-  var soql = "SELECT " + 
-  "Id, " +
-  "Name, " +
-  "dishes_des_recode_name__c, " +
-  "dishes_img__c " +
-  "FROM BM_menu__c " +
-  "WHERE Id = '" + dishId + "'";
-  force.query(soql, success, error);
-}
-
 function showMenu() {
     console.log("showMenu:start")
     var static_img = 'dishesM0002'
@@ -52,34 +41,46 @@ function showMenu() {
     return false;
 }
 
-function showMenuDetails(rrkid) {
+function getRRKDetails(dishId, success, error) {
+    var soql = "SELECT " + 
+    "Id, " +
+    "Name, " +
+    "Price__c, " +
+    "dishes_des_recode_name__c, " +
+    "dishes_img__c, " +
+    "FROM BM_menu__c " +
+    "WHERE Id = '" + dishId + "'";
+    force.query(soql, success, error);
+}
 
-    getRRKDetails(rrkid,
+function showMenuDetails(dishId) {
+
+    getRRKDetails(dishId,
         function (data) {
-            var rrk = data.records[0],
+            var dishes = data.records[0],
             html =
                 '<div class="page">' +
                 '<header class="bar bar-nav">' +
-                '<a class="btn btn-link btn-nav pull-left" href="#"><span class="icon icon-left-nav"></span>Back</a>' +
-            '<h1 class="title">【Brother Menu】菜单詳細</h1>' +
+                '<a class="btn btn-link btn-nav pull-left" href=""><span class="icon icon-left-nav"></span>Back</a>' +
+                '<h1 class="title">【Brother Menu】菜单詳細</h1>' +
                 '</header>' +
                 '<div class="content">' +
                     '<div class="card">' +
                         '<ul class="table-view">' +
                             '<li class="table-view-cell">' +
-                                '<h4>' + rrk.Name + '</h4>' +
-                                '<p>' + (rrk.Id || 'No time yet')+ '</p>' +
+                                '<h4>' + dishes.Name + '</h4>' +
+                                '<p>' + (dishes.Price__c || 'Not priced yet')+ '</p>' +
                             '</li>' +
-                            '<li class="table-view-cell">菜单: ' +
-                                rrk.RRK_NM__c +
+                            '<li class="table-view-cell">特点: ' +
+                                dishes.dishes_des_recode_name__c +
                             '</li>' +
                             '<li class="table-view-cell">' +
-                                (rrk.RRK_SEIKYU__c || 'No request yet') +
+                                (StringUtil.getImgFromSfdc(dishes.dishes_img__c) || 'get No image') +
                             '</li>' +
                         '</ul>' +
                     '</div>' +
                 '</div>' +
-                '<a href="#kbid/'+ rrk.Id +'"><p>>>to koban:' + '</p></a>' +
+                '<a href="#kbid/'+ dishes.Id +'"><p>>>to koban:' + '</p></a>' +
                 '</div>';
             slider.slidePage($(html));
         },
