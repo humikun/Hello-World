@@ -29,9 +29,9 @@ function showMenu() {
                 html_Content = '',
                 Menu_Content = '';
             for (var i=0; i<dishes.length; i++) {
-                Menu_Content += '<li class="table-view-cell"><a href="#rrkid/'+ dishes[i].Id +'">名称:' + dishes[i].Name + '</a></li>';
-                // Menu_Content += '<li class="table-view-cell"><a href="#rrkid/'+ dishes[i].Id +'">描述:' + dishes[i].dishes_recode_name__c + '</a></li>';
-                Menu_Content += '<li class="table-view-cell"><a href="#rrkid/'+ dishes[i].Id +'">' + StringUtil.getImgFromSfdc(dishes[i].dishes_img__c) + '</a></li>';
+                Menu_Content += '<li class="table-view-cell"><a href="#dishId/'+ dishes[i].Id +'">名称:' + dishes[i].Name + '</a></li>';
+                // Menu_Content += '<li class="table-view-cell"><a href="#dishId/'+ dishes[i].Id +'">描述:' + dishes[i].dishes_recode_name__c + '</a></li>';
+                Menu_Content += '<li class="table-view-cell"><a href="#dishId/'+ dishes[i].Id +'">' + StringUtil.getImgFromSfdc(dishes[i].dishes_img__c) + '</a></li>';
             }
             html_Content =
                 '<div class="page">' +
@@ -51,7 +51,7 @@ function showMenu() {
     return false;
 }
 
-function showRRKDetails(rrkid) {
+function showMenuDetails(rrkid) {
 
     getRRKDetails(rrkid,
         function (data) {
@@ -133,5 +133,5 @@ function showKBList() {
 
 var slider = new PageSlider($('body')); // Initialize PageSlider micro-library for nice and hardware-accelerated page transitions
 router.addRoute('', showMenu);
-router.addRoute('rrkid/:id', showRRKDetails);
+router.addRoute('dishId/:id', showMenuDetails);
 router.addRoute('kbid/:id', showKBList);
