@@ -47,7 +47,7 @@ function getRRKDetails(dishId, success, error) {
     "Name, " +
     "Price__c, " +
     "dishes_des_recode_name__c, " +
-    "dishes_img__c, " +
+    "dishes_img__c " +
     "FROM BM_menu__c " +
     "WHERE Id = '" + dishId + "'";
     force.query(soql, success, error);
