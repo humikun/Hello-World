@@ -3,13 +3,14 @@ function getRRKList(success, error) {
   force.query(soql, success, error);
 }
 
-function getRRKDetails(rrkid, success, error) {
-  var soql = "SELECT Id, " +
+function getRRKDetails(dishId, success, error) {
+  var soql = "SELECT " + 
+  "Id, " +
   "Name, " +
-  "RRK_NM__c, " +
-  "RRK_SEIKYU__c " +
-  "FROM RRK__c " +
-  "WHERE Id = '" + rrkid + "'";
+  "dishes_des_recode_name__c, " +
+  "dishes_img__c " +
+  "FROM BM_menu__c " +
+  "WHERE Id = '" + dishId + "'";
   force.query(soql, success, error);
 }
 
