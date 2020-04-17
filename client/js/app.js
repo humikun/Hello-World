@@ -1,5 +1,5 @@
 function getRRKList(success, error) {
-  var soql = "select Id, Name, dishes_recode_name__c, dishes_des_recode_name__c, dishes_img__c FROM menu__c";
+  var soql = "select Id, Name, dishes_recode_name__c, dishes_des_recode_name__c, dishes_img__c FROM BM_menu__c";
   force.query(soql, success, error);
 }
 
