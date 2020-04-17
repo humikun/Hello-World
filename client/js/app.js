@@ -13,8 +13,8 @@ function getRRKDetails(rrkid, success, error) {
   force.query(soql, success, error);
 }
 
-function showRRKList() {
-    console.log("showRRKList:start")
+function showMenu() {
+    console.log("showMenu:start")
     var static_img = 'dishesM0002'
     sfdcUtil.getStaticResource(static_img,function(data){
         console.log(JSON.stringify(data))
@@ -25,28 +25,29 @@ function showRRKList() {
     getRRKList(
         function (data) {
             console.log('data:'+data)
-            var rrks = data.records,
-                html = '';
-            for (var i=0; i<rrks.length; i++) {
-                html += '<li class="table-view-cell"><a href="#rrkid/'+ rrks[i].Id +'">名称:' + rrks[i].Name + '</a></li>';
-                html += '<li class="table-view-cell"><a href="#rrkid/'+ rrks[i].Id +'">描述:' + rrks[i].dishes_recode_name__c + '</a></li>';
-                html += '<li class="table-view-cell"><a href="#rrkid/'+ rrks[i].Id +'">' + StringUtil.getImgFromSfdc(rrks[i].dishes_img__c) + '</a></li>';
+            var dishes = data.records,
+                html_Content = '',
+                Menu_Content = '';
+            for (var i=0; i<dishes.length; i++) {
+                Menu_Content += '<li class="table-view-cell"><a href="#rrkid/'+ dishes[i].Id +'">名称:' + dishes[i].Name + '</a></li>';
+                // Menu_Content += '<li class="table-view-cell"><a href="#rrkid/'+ dishes[i].Id +'">描述:' + dishes[i].dishes_recode_name__c + '</a></li>';
+                Menu_Content += '<li class="table-view-cell"><a href="#rrkid/'+ dishes[i].Id +'">' + StringUtil.getImgFromSfdc(dishes[i].dishes_img__c) + '</a></li>';
             }
-            html =
+            html_Content =
                 '<div class="page">' +
                 '<header class="bar bar-nav">' +
-                    '<h1 class="title">「連絡表」最新情報</h1>' +
+                    '<h1 class="title">【Brother Menu】最新菜单</h1>' +
                 '</header>' +
                 '<div class="content">' +
-                    '<ul class="table-view session-list">' + html + '</ul>' +
+                    '<ul class="table-view session-list">' + Menu_Content + '</ul>' +
                 '</div>' +
                 '</div>';
-            slider.slidePage($(html));
+            slider.slidePage($(html_Content));
         },
         function (error) {
             alert("Error: " + JSON.stringify(error));
         });
-        console.log("showRRKList:end")
+        console.log("showMenu:end")
     return false;
 }
 
@@ -59,7 +60,7 @@ function showRRKDetails(rrkid) {
                 '<div class="page">' +
                 '<header class="bar bar-nav">' +
                 '<a class="btn btn-link btn-nav pull-left" href="#"><span class="icon icon-left-nav"></span>Back</a>' +
-            '<h1 class="title">連絡表詳細</h1>' +
+            '<h1 class="title">【Brother Menu】菜单詳細</h1>' +
                 '</header>' +
                 '<div class="content">' +
                     '<div class="card">' +
@@ -68,7 +69,7 @@ function showRRKDetails(rrkid) {
                                 '<h4>' + rrk.Name + '</h4>' +
                                 '<p>' + (rrk.Id || 'No time yet')+ '</p>' +
                             '</li>' +
-                            '<li class="table-view-cell">連絡票番号: ' +
+                            '<li class="table-view-cell">菜单: ' +
                                 rrk.RRK_NM__c +
                             '</li>' +
                             '<li class="table-view-cell">' +
@@ -131,6 +132,6 @@ function showKBList() {
 
 
 var slider = new PageSlider($('body')); // Initialize PageSlider micro-library for nice and hardware-accelerated page transitions
-router.addRoute('', showRRKList);
+router.addRoute('', showMenu);
 router.addRoute('rrkid/:id', showRRKDetails);
 router.addRoute('kbid/:id', showKBList);
